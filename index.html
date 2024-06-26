@@ -3,9 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fantax - Links</title>
+  <title>Fanta ID</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.5.3/flowbite.min.css" rel="stylesheet">
+  <style>
+    .quote {
+      display: none;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .quote.active {
+      display: block;
+      opacity: 1;
+    }
+  </style>
 </head>
 <body class="bg-gray-100">
 
@@ -13,11 +23,29 @@
     <div class="bg-white text-black rounded-lg shadow-md p-6">
       <div class="text-center">
         <img class="w-32 h-32 rounded-full mx-auto border-4 border-pink-500" src="img/fantax.jpg" alt="Fantax">
-        <h1 class="text-3xl font-bold mt-4">Fanta</h1>
-        <p class="text-gray-600 mt-2">Just an ordinary man.</p>
+        <h1 class="text-3xl font-bold mt-4">Fanta ID</h1>
+        <p class="text-gray-600 mt-2">Just an ordinary person who loves coding</p>
       </div>
       
       <div class="mt-6">
+        <h2 class="text-xl font-semibold">Links</h2>
+        <ul class="list-none mt-4 space-y-4">
+          <li>
+            <a href="https://www.facebook.com/profile.php?id=61558768555412" class="text-blue-600 hover:text-blue-800 flex items-center" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.73 0-1.325.597-1.325 1.333v21.333c0 .736.595 1.333 1.325 1.333h11.499v-9.333h-3.129v-3.667h3.129v-2.698c0-3.1 1.893-4.785 4.654-4.785 1.325 0 2.463.098 2.795.143v3.241h-1.917c-1.502 0-1.793.712-1.793 1.759v2.31h3.587l-.467 3.667h-3.12v9.333h6.121c.73 0 1.325-.597 1.325-1.333v-21.333c0-.736-.595-1.333-1.325-1.333z"/></svg>
+              Facebook
+            </a>
+          </li>
+          <li>
+            <a href="https://saweria.co/irwx" class="text-green-600 hover:text-green-800 flex items-center" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.372-12 12s5.374 12 12 12c6.626 0 12-5.372 12-12s-5.374-12-12-12zm0 23c-6.074 0-11-4.926-11-11s4.926-11 11-11 11 4.926 11 11-4.926 11-11 11zm.5-11h-1c-1.104 0-2-.896-2-2v-2c0-1.104.896-2 2-2h1c1.104 0 2 .896 2 2v2c0 1.104-.896 2-2 2zm-1-6c-.552 0-1 .448-1 1v2c0 .552.448 1 1 1h1c.552 0 1-.448 1-1v-2c0-.552-.448-1-1-1h-1zm.5 9h-1c-1.104 0-2 .896-2 2v2c0 1.104.896 2 2 2h1c1.104 0 2-.896 2-2v-2c0-1.104-.896-2-2-2zm-1 6c-.552 0-1-.448-1-1v-2c0-.552.448-1 1-1h1c.552 0 1 .448 1 1v2c0 .552-.448 1-1 1h-1z"/></svg>
+              Donate
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="mt-8">
         <h2 class="text-xl font-semibold">Projects</h2>
         <ul class="list-none mt-4 space-y-4">
           <li>
@@ -34,6 +62,22 @@
           </li>
         </ul>
       </div>
+
+      <div class="mt-8">
+        <h2 class="text-xl font-semibold">Quotes</h2>
+        <div class="mt-4">
+          <p class="quote active">"Simplicity is the ultimate sophistication."</p>
+          <p class="quote">"The only way to do great work is to love what you do."</p>
+          <p class="quote">"Stay hungry, stay foolish."</p>
+          <p class="quote">"Creativity is intelligence having fun."</p>
+          <p class="quote">"Innovation distinguishes between a leader and a follower."</p>
+          <p class="quote">"Think outside the box."</p>
+          <p class="quote">"Believe you can and you're halfway there."</p>
+          <p class="quote">"Make each day your masterpiece."</p>
+          <p class="quote">"Dream big. Start small. Act now."</p>
+          <p class="quote">"The future belongs to those who believe in the beauty of their dreams."</p>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -46,6 +90,16 @@
         speed: 800,
         speedAsDuration: true,
       });
+
+      const quotes = document.querySelectorAll('.quote');
+      let index = 0;
+
+      setInterval(() => {
+        quotes[index].classList.remove('active');
+        index = (index + 1) % quotes.length;
+        quotes[index].classList.add('active');
+      }, 6000); // Ganti setiap 6 detik
+
     });
   </script>
 </body>
